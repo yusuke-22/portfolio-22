@@ -88,8 +88,8 @@ $(function () {
     });
 
     $(document).ready(function () {
-        // 初期状態でボタンを非表示 (visibility: hidden)
-        $('.btn').css('visibility', 'hidden');
+        // 初期状態でボタンの透明度を0.5に設定
+        $('.btn').css('opacity', '0.5');
 
         // 入力フィールドの状態を監視するイベントハンドラ
         $('input, textarea').on('input', function () {
@@ -98,41 +98,14 @@ $(function () {
                 return $(this).val().trim() === ''; // 空の要素をチェック
             }).length === 0;
 
-            // 全て入力があれば visible、どれか空なら hidden
+            // 全て入力があれば opacity を 1 に設定、どれか空なら 0.5 に設定
             if (allFilled) {
-                $('.btn').css('visibility', 'visible');
+                $('.btn').css('opacity', '1');
             } else {
-                $('.btn').css('visibility', 'hidden');
+                $('.btn').css('opacity', '0.5');
             }
         });
     });
 
-    $(document).ready(function () {
-        // 初期状態で2番目のinputとtextareaを無効化
-        $('input:eq(1), textarea').prop('disabled', true);
-
-        // 最初のinputを監視
-        $('input:eq(0)').on('input', function () {
-            if ($(this).val().trim() !== '') {
-                // 入力がある場合は2番目のinputを有効化
-                $('input:eq(1)').prop('disabled', false);
-            } else {
-                // 入力がない場合は2番目のinputを無効化
-                $('input:eq(1)').prop('disabled', true);
-                $('textarea').prop('disabled', true); // 次も無効化
-            }
-        });
-
-        // 2番目のinputを監視
-        $('input:eq(1)').on('input', function () {
-            if ($(this).val().trim() !== '') {
-                // 入力がある場合はtextareaを有効化
-                $('textarea').prop('disabled', false);
-            } else {
-                // 入力がない場合はtextareaを無効化
-                $('textarea').prop('disabled', true);
-            }
-        });
-    });
-
+    
 });
