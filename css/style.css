@@ -496,12 +496,7 @@ textarea {
     display: block;
     padding-block: 10px;
     color: #F3F3F3;
-    background-color: transparent;
     position: relative;
-}
-
-.btn a[disabled] {
-    color: #001621;
 }
 
 .btn::before,
