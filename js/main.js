@@ -1,5 +1,12 @@
 $(function () {
 
+    $('.toggle-btn').click(function () {
+        $('header').toggleClass('open');
+    });
+    $(".header-nav a").on("click", function () {
+        $("header").toggleClass("open");
+    });
+
     $(window).scroll(function () {
         // クラスを追加するwindowの位置を設定
         var scrollTop = $(this).scrollTop();
